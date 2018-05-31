@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Title</title>
+    <title>{{title}}</title>
 </head>
 <body>
-<h1>Hello zhaohsun</h1>
+<h1>Hello {{user.name}}</h1>
+
+<h1>Age {{user.age}}</h1>
+
+<h1>Sex {{user.sex}}</h1>
+
+<h1>The {{user.name}} say: {{user.say}}</h1>
+<h1>book {{book_list.0}}</h1>
+<h1>book {{book_list.1}}</h1>
+<h1>book {{book_list.2}}</h1>
+<h1>book {{book_list.3}}</h1>
 </body>
+{% if user %}
+    <h1>Name {{user.name}}</h1>
+{% else %}
+    User doen't exist
+{% endif %}
+
+{% for book in book_list %}
+    <h1>{{book}}</h1>
+{% endfor %}
+
+{% for k in user %}
+    <h1>{{k}}</h1>
+{% endfor %}
+
+{% for k,v in user.items %}
+    <h1>{{forloop.counter}}.{{k}}:{{v}}</h1>
+{% endfor %}
+
+id:{{id}}
 </html>
